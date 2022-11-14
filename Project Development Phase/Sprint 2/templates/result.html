@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronic Kidney Disease Result</title>
+</head>
+
+<body>
+
+    <div style="color:black;" class="container">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2 class='container-heading'><span class="heading_font">Chronic Kidney Disease Prediction</span></h2>
+
+        <br><br><br><br>
+
+        <!-- Result -->
+		<div style="color:black;" class="results">
+			{% if prediction==1 %}
+				<h1><span class='danger'>Oops! 🙁<br><br>You have CHRONIC KIDNEY DISEASE.<br><br>Please Consult Doctor.</span></h1>
+				<img class="gif" src="{{ url_for('static', filename='no.gif')}}" alt="STROKE Image">
+			{% elif prediction==0 %}
+				<h1><span class='safe'>🎉 Congratulation! 🎉<br><br>You DON'T have Chronic Kidney Disease.</span></h1>
+				<img class="gif1" src="{{ url_for('static', filename='gif2.gif')}}" alt="Not STROKE Image">
+			{% endif %}
+		</div>
+        </form>
+
+    </div>
+    <div>
+            <br><br><br><br>
+            <img src="{{ url_for('static', filename='Kidney3.jpg')}}" alt="Live a Healthy Life">
+    </div>
+
+
+<style>
+
+/* Color */
+body{
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+
+/* Heading Font */
+.container-heading{
+    margin: 0;
+}
+
+.heading_font{
+    color: black;
+	font-family:'Pacifico', cursive;
+	font-size:50px;
+	font-weight:normal;
+}
+
+</style>
+
+
+</body>
+
+</html>
